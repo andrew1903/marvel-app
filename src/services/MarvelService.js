@@ -29,6 +29,9 @@ export class MarvelService {
     }
 
     _transformCharacter = (char) => {
+        if (char.description.length === 0)
+            char.description = 'There is no description for this character yet.';
+
         return {
             id: char.id,
             name: char.name,
@@ -36,7 +39,16 @@ export class MarvelService {
             thumbnail: `${char.thumbnail.path}.${char.thumbnail.extension}`,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
+            comics: char.comics
         }
+    }
+
+    getCharById = (characters, id) => {
+        const char = characters.find(char => char.id === id);
+        if (char === undefined) {
+            throw new Error("Char with such id not found!")
+        }
+        return char;
     }
 }
 

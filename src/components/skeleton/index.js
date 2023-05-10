@@ -2,7 +2,7 @@ import './skeleton.scss';
 
 export function Skeleton() {
     return (
-        <>
+        <div>
             <p className="char__select">Please select a character to see information</p>
             <div className="skeleton">
                 <div className="pulse skeleton__header">
@@ -13,6 +13,6 @@ export function Skeleton() {
                 <div className="pulse skeleton__block"></div>
                 <div className="pulse skeleton__block"></div>
             </div>
-        </>
+        </div>
     );
 }
